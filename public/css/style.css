@@ -1,0 +1,153 @@
+/* Other Styling */
+.text-white{
+    color: white
+}
+.bold{
+    font-weight: bold;
+}
+
+#custom-loader{
+    width: 80px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    animation: loader infinite linear 600ms;
+}
+@keyframes loader{
+        from{
+          transform : rotate(0);  
+        }
+        to{
+            transform: rotate(360deg)
+        }
+    }
+
+
+/*********** Header *****************/
+header{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(44, 56, 66);
+    padding: 10px;
+}
+header h2{
+    color: white;
+}
+#menu-btn{
+    max-width: max-content;
+    max-height: max-content;
+    font-size :1.2em;
+    background: #CAD3C8;
+}
+#navbar{
+    width: 300px;
+    background: rgb(34, 41, 46);
+    height: 100vh;
+    position: fixed;
+    transform: translateX(-100%);
+    transition: all 500ms ease-in-out;
+    z-index: 1000;
+    padding-left: 25px;
+}
+#navbar ul{
+    list-style-type: none;
+}
+#navbar ul li{
+    padding: 5px;
+    font-size: 1.4em;
+    color: white;
+}
+#icon-div{
+    text-align: right;
+    padding: 4px;
+    cursor: pointer;
+}
+
+
+
+
+/***************** HomePage *********/
+#main-div{
+    width: 90%;
+    margin: 0 auto;
+}
+#search-div{
+    display: flex;
+    margin-top: 20px;
+}
+#search-div select{
+    width: 60%;
+}
+ul{
+    list-style-type: none;
+    padding-left: 0;
+}
+ul li{
+    display: flex;
+    justify-content: space-between;
+}
+.text-align-right{
+    text-align: right;
+}
+
+
+
+
+/***************** Submit Page **************/
+#submit-ad-form{
+    width: 50%;
+    margin: 0 auto;
+}
+#product , #select , #address , #contact-num , #price , #descrip{
+    border-color: rgba(128, 128, 128, 0.9);
+}
+.img{
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    /* padding-left: 80px; */
+}
+.padding{
+    margin: 0 auto;
+    margin-left: 30px!important;
+
+}
+.error{
+    color: red;
+}
+
+
+/******************* Details PAge *********/
+.align-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+}
+
+.border{
+    border: 2px solid black;
+    width: 90%;
+}
+#vertical-center{
+    position: absolute;
+    top: 50%;;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+#table{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) ;
+}
+.box-shadow{
+    box-shadow: -4px 4px 10px black;
+}
+
+
+/*****************************************/
+@media (max-width: 600px){
+    #submit-ad-form{
+        width: 70%;
+    }
+}

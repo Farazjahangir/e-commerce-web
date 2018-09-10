@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title E-shop
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/auth.css">    
+  body
+    #form-div
+        form(action="/auth/signin" method="POST")
+            h3 LogIn To Your Account
+            input(type="email"  name="email" class="form-control" placeholder="Enter Your Email Address.." onFocus="emptyFields()" required)
+            input(type="password"  name="password" class="form-control" placeholder="Enter Your Paswword.." onFocus="emptyFields()" required)
+            input(type="submit"  value="Signin" class="btn btn-primary")
+        p If Don't Have An Account 
+            a(href="signup") SignUp Here 
+        span(id="error") #{error}
+    script(src="/js/main.js")

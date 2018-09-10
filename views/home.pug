@@ -1,0 +1,21 @@
+
+extends layout
+
+
+block content
+    #main-div
+        img(src="/images/loader.png" id="custom-loader")
+        #search-div
+            select(name="cat" class="custom-select" id="select")
+                option Select Cateogry
+                option(value="House Hold Items") House hold items
+                option(value="Properties") properties
+                option(value="Bikes") Bikes
+                option(value="Cars") Cars
+                option(value="Electronics Items") Electronics Items
+            input(type="text" name="productname" id="product" class="form-control" placeholder="Search By Product Name")
+        input(type="button" value="Search" class="btn btn-success my-1" onClick="searchAd()")
+    div(class="container-fluid")
+        div(class="row" id="ad-container")
+    script(src="/js/getAds.js")
+    

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    h3(class="text-center my-3") Create Your Own Ad
+
+    form(id="form" action="/submitAd/submit" method="POST")
+        #submit-ad-form
+            .form-group
+                label(for="product") Product Name:
+                input(type="text" name="productname" id="product" class="form-control" required)
+            .form-group
+                label(for="select-feild") Select One:
+                select(name="cat" class="custom-select" id="select" required)
+                    option(selected) Select Cateogry
+                    option(value="House Hold Items") House hold items
+                    option(value="Properties") properties
+                    option(value="Bikes") Bikes
+                    option(value="Cars") Cars
+                    option(value="Electronics Items") Electronics Items
+            .form-group
+                label(for="address") Enter Your Address
+                input(type="text" name="address" id="address" class="form-control" required)
+            .form-group
+                label(for="contact-num") Phone number
+                input(type="number" name="contactNum" id="contact-num" class="form-control" required)
+            .form-group
+                label(for="price") Price
+                input(type="number" name="price" id="price" class="form-control" required)
+            .form-group
+                label(for="descrip") Description
+                textarea(name="descrip" cols="5", rows="4" id="descrip" class="form-control" required)
+            .custom-file
+                label(for="file" class="custom-file-label") Choose File
+                input(type="file" name="file" class="custom-file-input" id="file" onchange="encodeImageFileAsURL(this)" )
+            input(type="submit" value="Submit" class="btn btn-danger my-2")
+    //- script(src="/js/adSubmit.js")
+    script(src="/js/submit.js")
+
