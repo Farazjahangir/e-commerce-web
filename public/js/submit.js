@@ -1,6 +1,9 @@
 var imageUrl;
-var form = document.getElementById('form')
+var form = document.getElementById('form');
+var loader = document.getElementById("custom-loader");
+loader.style.display = "none"
 
+// Convert Image into Base64 on Onchange Event 
 function encodeImageFileAsURL(element) {
     var file = element.files[0];
     var reader = new FileReader();
@@ -10,9 +13,11 @@ function encodeImageFileAsURL(element) {
     reader.readAsDataURL(file);
   }
 
+// Function For Submit Ad
 form.addEventListener("submit" , (e)=>{
 
     e.preventDefault()
+    loader.style.display = "block"
     var productName = document.getElementById("product").value;
     var cateogryName = document.getElementById('select').value;
     var address = document.getElementById('address').value;
@@ -42,7 +47,7 @@ form.addEventListener("submit" , (e)=>{
     })
     .then(res => res.json())
     .then((myJson)=>{
-        swal("Your Ad Have Been Posted")
+        loader.style.display = "none"
         window.location.assign("/")
         console.log(myJson);
         

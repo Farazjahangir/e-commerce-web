@@ -1,6 +1,7 @@
 var adContainer = document.getElementById("ad-container");
 var loader = document.getElementById("custom-loader");
 
+// Show Ads On Body Load
 window.addEventListener("load" , ()=>{
     console.log("run");
     
@@ -9,9 +10,21 @@ window.addEventListener("load" , ()=>{
         return res.json();
     })
     .then(json => {
+        //if Any error It will throw in catch
         if(json.isError){
             throw json
         }
+        // If no Ads Found
+        if(json.adsData.length === 0){
+            adContainer.innerHTML = `
+            <div class="align-center">
+                <h1 class="error">No Ads Found</h1>
+
+            </div>
+            `
+        }
+        console.log(json);
+        
         loader.style.display = "none"
         json.adsData.map((data)=>{
             adContainer.innerHTML += `
@@ -53,12 +66,12 @@ window.addEventListener("load" , ()=>{
 function searchAd(){
     adContainer.innerHTML = ""
     loader.style.display = "block"
-   var cateogryName = document.getElementById("select").value
-   var productName = document.getElementById("product").value
-   const searchObj = {
-       cateogryName,
-       productName
-   }
+    var cateogryName = document.getElementById("select").value
+    var productName = document.getElementById("product").value
+    const searchObj = {
+        cateogryName,
+        productName
+    }
    
    fetch("/search" , {
     method : 'POST',
@@ -71,6 +84,7 @@ function searchAd(){
 .then((res)=>{
     return res.json()
 })
+// If The Search AD Not Found
 .then((myJson)=>{
     loader.style.display = "none"
     if(myJson.data.length === 0){
@@ -113,6 +127,7 @@ function searchAd(){
 })    
 }
 
+// Save Selected Ad ID In local Storage
 function seeDetails(id){
     localStorage.setItem("adId" , id)
     window.location.assign("details")

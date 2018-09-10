@@ -1,13 +1,11 @@
 var express = require("express");
 var Router = express.Router();
-
-// const preventAuth = require('../middlewares/preventAuth');
-
-const ad = require("../modal/adSchema");
-const user = require("../modal/userSchema");
+const ad = require("../modal/adSchema"); //Ad Schema
+const user = require("../modal/userSchema"); //User Schema
 
 
 Router.post("/submit" , (req , res)=>{
+    // Save UserUid From Session
     var userUid =  req.session.userId;
     user.find({_id : userUid} , (err,data)=>{
        var currentUserName = data[0].username
@@ -15,8 +13,8 @@ Router.post("/submit" , (req , res)=>{
         var adData = req.body;
         console.log("ADDATA===" , adData);
         
-        adData.user_id = userUid;
-        adData.userName = currentUserName;
+        adData.user_id = userUid; //save userID In Ad Obj
+        adData.userName = currentUserName; //Save UserName in AD obj
         adData.created_at = Date.now()
         res.json({data : currentUserName})
         

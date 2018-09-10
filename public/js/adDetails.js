@@ -1,5 +1,7 @@
+
+// Loads the Ads Details On BOdy Load
 window.addEventListener("load" , ()=>{
-    const id = localStorage.getItem("adId")
+    const id = localStorage.getItem("adId") //get selected Ad id from local storage
     fetch("/addetails" , {
         method : 'POST',
         body : JSON.stringify({id : id}),
@@ -21,11 +23,11 @@ window.addEventListener("load" , ()=>{
 
           detailsContainer.innerHTML = `
             <div class="row border box-shadow" id="vertical-center">
-                <div class="col-3">
+                <div class="col-4  text-center">
                     <img src=${myJson.data.imageUrl} width="280px" />
                 </div>
-                <div class="col-5">
-                    <table class="table" id="table">
+                <div class="col-8">
+                    <table class="table table-responsive" id="table">
                         <tr>
                             <td class="bold">Product Name</td>
                             <td>${myJson.data.productName}</td>
